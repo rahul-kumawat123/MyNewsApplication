@@ -46,8 +46,8 @@ class NewsRepository(
     }
 
 
-    fun getKeywordData(category: String , keyword: String){
-        val call = ApiClient.getClient.getSearchData(KEY, "en", category , keyword)
+    fun getKeywordData( keyword: String){
+        val call = ApiClient.getClient.getSearchData(KEY, "en",  keyword)
         call.enqueue(object : Callback<ResponseDataModel> {
             override fun onResponse(
                     call: Call<ResponseDataModel>,

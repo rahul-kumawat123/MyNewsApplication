@@ -1,17 +1,67 @@
 package com.example.mynewsapplication.fragment
 
+import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
+import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mynewsapplication.ItemAdapter
 import com.example.mynewsapplication.MainActivity
 import com.example.mynewsapplication.NewsViewModel
 import com.example.mynewsapplication.R
+import kotlinx.android.synthetic.main.fragment_live_news.*
+import kotlinx.android.synthetic.main.fragment_search_news.*
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
-    //lateinit var viewModel: NewsViewModel
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //viewModel = (activity as MainActivity).viewModel
+    lateinit var viewModel: NewsViewModel
+    lateinit var newsAdapter: ItemAdapter
+    val TAG = SearchNewsFragment::class.java.simpleName
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
+
+        var job: Job? = null
+        etSearch.addTextChangedListener { editable ->
+            job?.cancel()
+            job = MainScope().launch {
+                delay(500L)
+                editable.let {
+                    if(editable.toString().isNotEmpty()){
+                        viewModel.getKeywordNewsFromApi(editable.toString())
+                    }
+                }
+            }
+        }
+
+        viewModel.mutableLiveData?.observe(viewLifecycleOwner , Observer { dataList ->
+            rvSearchNews.also {
+                it.layoutManager = LinearLayoutManager(requireContext())
+                it.adapter = ItemAdapter(activity as MainActivity,dataList.data)
+//                { newsData ->
+//                    if(newsData.isFav){
+//                        viewModel.addBookmark(newsData)
+//                    }else{
+//                        viewModel.removeBookmark(newsData)
+//                    }
+//                }
+                Log.i(TAG, dataList.data.toString())
+            }
+        })
     }
+
 }

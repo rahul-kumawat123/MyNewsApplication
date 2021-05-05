@@ -46,8 +46,8 @@ class NewsViewModel( application: Application ,
     }
 
 
-    fun getKeywordNewsFromApi(category: String, keyword: String) {
-        newsRepository?.getKeywordData(category, keyword)
+    fun getKeywordNewsFromApi( keyword: String) {
+        newsRepository?.getKeywordData(keyword)
     }
 
 

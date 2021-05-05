@@ -20,7 +20,7 @@ interface ApiInterface {
     fun getSearchData(
         @Query("access_key") key : String = KEY,
         @Query("languages") lang: String,
-        @Query("categories") category: String,
+        //@Query("categories") category: String,
         @Query("keywords") keywords : String
     ):retrofit2.Call<ResponseDataModel>
 
