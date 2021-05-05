@@ -1,0 +1,18 @@
+package com.example.mynewsapplication.fragment
+
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+import com.example.mynewsapplication.MainActivity
+import com.example.mynewsapplication.NewsViewModel
+import com.example.mynewsapplication.R
+
+class WebNewsFragment: Fragment(R.layout.fragment_web_news) {
+
+    //lateinit var viewModel: NewsViewModel
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //viewModel = (activity as MainActivity).viewModel
+    }
+}
