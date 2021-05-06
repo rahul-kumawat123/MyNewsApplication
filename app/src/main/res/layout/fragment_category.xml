@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/businessBTN"
+        android:layout_width="165dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="173dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:text="Business"
+        app:layout_constraintEnd_toStartOf="@+id/entertainmentBTN"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/entertainmentBTN"
+        android:layout_width="170dp"
+        android:layout_height="54dp"
+
+        android:layout_marginTop="173dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:text="Entertainment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/healthBTN"
+        android:layout_width="162dp"
+        android:layout_height="57dp"
+
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Health"
+        app:layout_constraintEnd_toStartOf="@+id/scienceBTN"
+        app:layout_constraintTop_toBottomOf="@+id/businessBTN" />
+
+    <Button
+        android:id="@+id/scienceBTN"
+        android:layout_width="169dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Science"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entertainmentBTN" />
+
+    <Button
+        android:id="@+id/sportsBTN"
+        android:layout_width="158dp"
+        android:layout_height="56dp"
+
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:text="Sports"
+        app:layout_constraintEnd_toStartOf="@+id/technologyBTN"
+        app:layout_constraintTop_toBottomOf="@+id/healthBTN" />
+
+    <Button
+        android:id="@+id/technologyBTN"
+        android:layout_width="158dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:text="Technology"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scienceBTN" />
+</androidx.constraintlayout.widget.ConstraintLayout>

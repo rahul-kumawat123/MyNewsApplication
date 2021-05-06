@@ -14,6 +14,10 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <argument
+            android:name="category"
+            app:argType="string"
+            android:defaultValue="general" />
     </fragment>
     <fragment
         android:id="@+id/searchNewsFragment"
@@ -43,4 +47,16 @@
         android:id="@+id/webNewsFragment"
         android:name="com.example.mynewsapplication.fragment.WebNewsFragment"
         android:label="WebNewsFragment" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.mynewsapplication.fragment.CategoryFragment"
+        android:label="CategoryFragment" >
+        <action
+            android:id="@+id/action_categoryFragment_to_liveNewsFragment"
+            app:destination="@id/liveNewsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 </navigation>

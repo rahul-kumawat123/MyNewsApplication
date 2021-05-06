@@ -13,4 +13,7 @@
         android:title="Search News"
         android:icon="@drawable/ic_search" />
 
+    <item android:id="@+id/categoryFragment"
+        android:title="Category"
+        android:icon="@drawable/ic_category"/>
 </menu>
