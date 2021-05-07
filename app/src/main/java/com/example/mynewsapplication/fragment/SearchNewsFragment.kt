@@ -1,17 +1,12 @@
 package com.example.mynewsapplication.fragment
 
-import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.util.Log
-import android.view.MotionEvent
-import android.view.View
-import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mynewsapplication.ItemAdapter
 import com.example.mynewsapplication.MainActivity
@@ -34,6 +29,16 @@ class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
         super.onActivityCreated(savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
+
+//        newsAdapter.setOnItemClickListener {
+//            val bundle = Bundle().apply {
+//                putSerializable("webnews", it)
+//            }
+//            findNavController().navigate(
+//                R.id.action_searchNewsFragment_to_webNewsFragment,
+//                bundle
+//            )
+//        }
 
         var job: Job? = null
         etSearch.addTextChangedListener { editable ->

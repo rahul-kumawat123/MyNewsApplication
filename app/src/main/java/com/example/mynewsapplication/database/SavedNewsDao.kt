@@ -8,7 +8,7 @@ import com.example.newsapp.model.SavedNews
 interface SavedNewsDao {
 
     @Query("Select * from News_table")
-    fun getAllNews(): LiveData<List<SavedNews>>
+    fun getAllNews(): List<SavedNews>
 
     @Insert(/*onConflict = OnConflictStrategy.REPLACE*/)
     fun insertNews(savedNews: SavedNews)

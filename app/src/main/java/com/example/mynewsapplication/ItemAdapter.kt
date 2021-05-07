@@ -1,18 +1,22 @@
 package com.example.mynewsapplication
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.OrientationEventListener
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mynewsapplication.fragment.LiveNewsFragment
+import com.example.mynewsapplication.util.showToast
 import com.example.newsapp.model.DataModel
+import com.example.newsapp.model.SavedNews
 
 
 class ItemAdapter(private val context: Context, private val dataList: List<DataModel>,
+//                  private val onItemClick: (DataModel) -> Unit
                   //private val listener: OnRecyclerViewItemClickListener
 ) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
@@ -49,6 +53,8 @@ class ItemAdapter(private val context: Context, private val dataList: List<DataM
         return ViewHolder(inflater)
     }
 
+    private var onItemClickListener: ((DataModel) -> Unit)? = null
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.apply {
 //            title.text = dataList[position].title
@@ -73,13 +79,29 @@ class ItemAdapter(private val context: Context, private val dataList: List<DataM
             source.text = dataList[position].source
             time.text = dataList[position].time
 
+            itemView.setOnClickListener {
+                onItemClickListener?.let { it(dataList[position]) }
+            }
+
+            image.setOnClickListener {
+                val intent = Intent(holder.itemView.context , WebActivity::class.java)
+                intent.putExtra("url" , dataList[position].url)
+                holder.itemView.context.startActivity(intent)
+                //val bundle = Bundle()
+//                bundle.putString("url", dataList[position].url)
+//                val objects = WebNewsFragment()
+//                objects.arguments = bundle
+            }
         }
     }
 
-    interface OnRecyclerViewItemClickListener{
-        fun onItemClicked(position: Int ,url_adapter: String , title_adapter : String ,
-                          desc_adapter: String  , time_adapter: String)
+    fun setOnItemClickListener(listener: (DataModel) -> Unit){
+        onItemClickListener = listener
     }
+
+//    interface OnRecyclerViewItemClickListener{
+//        fun onItemClicked(position: Int )
+//    }
 
     override fun getItemCount(): Int = dataList.size
 }

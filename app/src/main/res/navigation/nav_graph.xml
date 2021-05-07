@@ -46,7 +46,11 @@
     <fragment
         android:id="@+id/webNewsFragment"
         android:name="com.example.mynewsapplication.fragment.WebNewsFragment"
-        android:label="WebNewsFragment" />
+        android:label="WebNewsFragment" >
+        <argument
+            android:name="webNews"
+            app:argType="com.example.newsapp.model.DataModel" />
+    </fragment>
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.mynewsapplication.fragment.CategoryFragment"

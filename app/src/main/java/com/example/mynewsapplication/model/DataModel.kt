@@ -1,6 +1,7 @@
 package com.example.newsapp.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class DataModel(
     @SerializedName("title")
@@ -27,4 +28,4 @@ data class DataModel(
     @SerializedName("published_at")
     val time: String
 
-)
+): Serializable
