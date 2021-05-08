@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout_Languages"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/textInputLayout_marginStart"
+        android:layout_marginLeft="@dimen/textInputLayout_marginLeft"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="@dimen/textInputLayout_marginEnd"
+        android:layout_marginRight="@dimen/textInputLayout_marginRight"
+        android:hint="LANGUAGE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_languages">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView_Languages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="English"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout_Countries"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/textInputLayout_marginStart"
+        android:layout_marginLeft="@dimen/textInputLayout_marginLeft"
+        android:layout_marginTop="@dimen/textInputLayout_marginTop"
+        android:layout_marginEnd="@dimen/textInputLayout_marginEnd"
+        android:layout_marginRight="@dimen/textInputLayout_marginRight"
+        android:hint="COUNTRY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Languages"
+        app:startIconDrawable="@drawable/ic_country">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView_Countries"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:inputType="none"
+            android:text="India" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/searchNewsBTN"
+        android:layout_width="157dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginRight="167dp"
+        android:text="Search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_Countries" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

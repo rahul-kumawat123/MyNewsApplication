@@ -8,23 +8,20 @@ import com.example.mynewsapplication.util.Constants.Companion.KEY
 import com.example.newsapp.database.AppRoomDatabase
 import com.example.newsapp.model.ResponseDataModel
 import com.example.newsapp.rests.ApiClient
+import org.intellij.lang.annotations.Language
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 
-class NewsRepository(
-//        val db : AppRoomDatabase
-) {
-//    suspend fun getData(countryCode : String) = ApiClient.getClient.getData(countryCode)
+class NewsRepository() {
 
     val TAG = NewsRepository::class.java.simpleName
     val mutableList: MutableLiveData<ResponseDataModel> = MutableLiveData()
-    val errorString: MutableLiveData<String> = MutableLiveData()
 
+    fun getData(category: String ,language: String , country: String){
 
-    fun getData(category: String){
-        val call = ApiClient.getClient.getCategorisedData(KEY  , "en" , category  )
+        val call = ApiClient.getClient.getCategorisedData(KEY  , category , language , country  )
         call.enqueue(object : Callback<ResponseDataModel> {
             override fun onResponse(
                     call: Call<ResponseDataModel>,

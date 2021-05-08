@@ -10,13 +10,6 @@ interface ApiInterface {
     //end point of base_url
 
     @GET("news")
-    fun getData(
-        @Query("access_key") key : String = KEY,
-        //@Query("languages") lang: String,
-        @Query("countries") country: String = "us"
-    ):Response<ResponseDataModel>
-
-    @GET("news")
     fun getSearchData(
         @Query("access_key") key : String = KEY,
         @Query("languages") lang: String,
@@ -27,9 +20,9 @@ interface ApiInterface {
     @GET("news")
     fun getCategorisedData(
             @Query("access_key") key : String = KEY,
-            @Query("languages") lang: String,
             @Query("categories") categories: String,
-            //@Query("countries") country: String
+            @Query("languages") lang: String,
+            @Query("countries") country: String
     ):retrofit2.Call<ResponseDataModel>
 
     @GET("news")

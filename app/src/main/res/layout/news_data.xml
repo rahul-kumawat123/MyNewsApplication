@@ -108,6 +108,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
                 app:srcCompat="@drawable/ic_published_time"
                 tools:ignore="VectorDrawableCompat" />
+
+            <ImageView
+                android:id="@+id/bookmarksImageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_not_bookmarked"
+                tools:layout_editor_absoluteX="346dp"
+                tools:layout_editor_absoluteY="121dp"
+                tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

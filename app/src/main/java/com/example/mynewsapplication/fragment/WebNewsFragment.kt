@@ -1,35 +1,25 @@
 package com.example.mynewsapplication.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.example.mynewsapplication.MainActivity
-import com.example.mynewsapplication.NewsViewModel
+import com.example.mynewsapplication.viewmodel.NewsViewModel
 import com.example.mynewsapplication.R
-import kotlinx.android.synthetic.main.fragment_web_news.*
 
 class WebNewsFragment: Fragment(R.layout.fragment_web_news) {
 
     lateinit var viewModel: NewsViewModel
-    private val args: WebNewsFragmentArgs by navArgs()
+    //private val args: WebNewsFragmentArgs by navArgs()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
 
-        val webNews = args.webNews
-        webView.apply {
-            webViewClient = WebViewClient()
-            loadUrl(webNews.url)
-        }
+//        val webNews = args.webNews
+//        webView.apply {
+//            webViewClient = WebViewClient()
+//            loadUrl(webNews.url)
+//        }
 
 //        val intentData = requireActivity()
 

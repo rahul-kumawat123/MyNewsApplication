@@ -1,11 +1,11 @@
-package com.example.mynewsapplication
+package com.example.mynewsapplication.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.mynewsapplication.repository.NewsRepository
 import com.example.newsapp.database.RoomDatabaseBuilder
+import com.example.newsapp.model.DataModel
 import com.example.newsapp.model.ResponseDataModel
-import com.example.newsapp.model.SavedNews
 import java.util.concurrent.Executors
 
 class NewsViewModel( application: Application ,
@@ -41,8 +41,8 @@ class NewsViewModel( application: Application ,
     }
 
 
-    fun getNewsFromApi(category: String) {
-        newsRepository?.getData(category)
+    fun getNewsFromApi(category: String , language: String, country: String ) {
+        newsRepository?.getData(category ,language , country)
     }
 
 
@@ -50,34 +50,35 @@ class NewsViewModel( application: Application ,
         newsRepository?.getKeywordData(keyword)
     }
 
-
-    fun addBookmark(savedNews: SavedNews) {
+    fun addBookmark(dataModel: DataModel) {
         Executors.newSingleThreadExecutor().execute {
-            roomDatabaseBuilder.savedNewsDao().insertNews(
-                    SavedNews(
-                            news_title = savedNews.news_title,
-                            news_desc = savedNews.news_desc,
-                            news_source = savedNews.news_source,
-                            news_time = savedNews.news_time,
-                            news_url = savedNews.news_url,
-                            news_image = savedNews.news_image,
-                            isFav = true )
+            roomDatabaseBuilder.dataModelNewsDao().insertNews(
+                DataModel(
+                    title = dataModel.title,
+                    description = dataModel.description,
+                    source = dataModel.source,
+                    time = dataModel.time,
+                    url = dataModel.url,
+                    image = dataModel.image,
+                    isFav = true
+                )
             )
         }
     }
 
 
-    fun removeBookmark(savedNews: SavedNews) {
+    fun removeBookmark(dataModel: DataModel) {
         Executors.newSingleThreadExecutor().execute {
-            roomDatabaseBuilder.savedNewsDao().deleteNews(
-                    SavedNews(
-                            news_title = savedNews.news_title,
-                            news_desc = savedNews.news_desc,
-                            news_source = savedNews.news_source,
-                            news_time = savedNews.news_time,
-                            news_url = savedNews.news_url,
-                            news_image = savedNews.news_image,
-                            isFav = false )
+            roomDatabaseBuilder.dataModelNewsDao().deleteNews(
+                DataModel(
+                    title = dataModel.title,
+                    description = dataModel.description,
+                    source = dataModel.source,
+                    time = dataModel.time,
+                    url = dataModel.url,
+                    image = dataModel.image,
+                    isFav = false
+                )
             )
         }
     }

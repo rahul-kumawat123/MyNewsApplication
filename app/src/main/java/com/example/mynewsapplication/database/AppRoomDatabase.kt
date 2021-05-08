@@ -2,9 +2,10 @@ package com.example.newsapp.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.newsapp.model.SavedNews
+import com.example.newsapp.model.DataModel
 
-@Database(entities = [SavedNews::class] , version = 4)
+
+@Database(entities = [DataModel::class] , version = 5)
 abstract class AppRoomDatabase: RoomDatabase() {
-    abstract fun savedNewsDao(): SavedNewsDao
+    abstract fun dataModelNewsDao(): DataModelNewsDao
 }

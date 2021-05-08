@@ -1,21 +1,12 @@
 package com.example.mynewsapplication.fragment
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mynewsapplication.ItemAdapter
-import com.example.mynewsapplication.MainActivity
-import com.example.mynewsapplication.NewsViewModel
+import com.example.mynewsapplication.viewmodel.NewsViewModel
 import com.example.mynewsapplication.R
 import kotlinx.android.synthetic.main.fragment_category.*
-import kotlinx.android.synthetic.main.fragment_live_news.*
 
 class CategoryFragment: Fragment(R.layout.fragment_category) {
     lateinit var viewModel: NewsViewModel

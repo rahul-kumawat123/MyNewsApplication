@@ -18,6 +18,14 @@
             android:name="category"
             app:argType="string"
             android:defaultValue="general" />
+        <argument
+            android:name="language"
+            app:argType="string"
+            android:defaultValue="en" />
+        <argument
+            android:name="country"
+            app:argType="string"
+            android:defaultValue="us" />
     </fragment>
     <fragment
         android:id="@+id/searchNewsFragment"
@@ -46,11 +54,7 @@
     <fragment
         android:id="@+id/webNewsFragment"
         android:name="com.example.mynewsapplication.fragment.WebNewsFragment"
-        android:label="WebNewsFragment" >
-        <argument
-            android:name="webNews"
-            app:argType="com.example.newsapp.model.DataModel" />
-    </fragment>
+        android:label="WebNewsFragment" />
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.mynewsapplication.fragment.CategoryFragment"
@@ -62,5 +66,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.mynewsapplication.fragment.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_liveNewsFragment"
+            app:destination="@id/liveNewsFragment" />
     </fragment>
 </navigation>

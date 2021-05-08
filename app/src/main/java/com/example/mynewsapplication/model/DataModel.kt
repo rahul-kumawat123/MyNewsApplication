@@ -1,31 +1,36 @@
 package com.example.newsapp.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
+@Entity(tableName = "News_table")
 data class DataModel(
+
+
+//    @ColumnInfo(name = "News_Id")
+//    var id :Int? = null,
+    @PrimaryKey
     @SerializedName("title")
-    val title : String,
-
-    @SerializedName("author")
-    val author: String,
-
-    @SerializedName("description")
-    val description: String,
+    var title : String,
 
     @SerializedName("url")
-    val url: String,
+    var url: String,
+
+    @SerializedName("description")
+    var description: String,
 
     @SerializedName("image")
-    val image: String,
+    var image: String,
 
     @SerializedName("source")
-    val source: String,
-
-    @SerializedName("countries")
-    val country: String,
+    var source: String,
 
     @SerializedName("published_at")
-    val time: String
+    var time: String,
 
-): Serializable
+    var isFav: Boolean = false
+
+)
