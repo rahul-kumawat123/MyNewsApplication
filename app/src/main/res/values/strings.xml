@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">My News Application</string>
+    <string name="sample_text">Sample Text</string>
+    <string name="search">Search...</string>
+    <string name="language">LANGUAGE</string>
+    <string name="english">English</string>
+    <string name="country">COUNTRY</string>
+    <string name="india">India</string>
+    <string name="news">News</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="search_news">Search News</string>
+    <string name="category">Category</string>
+    <string name="settings">Settings</string>
 
     <string-array name="languages">
         <item>English</item>

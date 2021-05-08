@@ -7,12 +7,13 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="10dp"
-        android:layout_marginTop="5dp"
-        app:cardCornerRadius="15dp"
-        android:layout_margin="5dp"
+        app:cardElevation="@dimen/cardView_elevation"
+        android:layout_marginTop="@dimen/cardView_marginTop"
+        app:cardCornerRadius="@dimen/cardView_cornerRadius"
+        android:layout_margin="@dimen/cardView_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,12 +36,11 @@
             <TextView
                 android:id="@+id/heading_textView"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="4dp"
+                android:layout_height="@dimen/heading_tv_height"
+                android:layout_marginTop="@dimen/heading_tv_marginTop"
                 android:gravity="left"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="TextView"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,35 +50,35 @@
             <TextView
                 android:id="@+id/description_textView"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="4dp"
+                android:layout_height="@dimen/description_tv_height"
+                android:layout_marginTop="@dimen/descripton_tv_marginTop"
                 android:gravity="left"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:paddingLeft="@dimen/description_tv_paddingLeft"
+                android:paddingRight="@dimen/description_tv_paddingRight"
                 android:maxLines="2"
-                android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/heading_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/heading_textView"
+                android:paddingStart="@dimen/description_tv_paddingLeft"
+                android:paddingEnd="@dimen/description_tv_paddingRight" />
 
             <TextView
                 android:id="@+id/source_textView"
-                android:layout_width="279dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="4dp"
+                android:layout_width="@dimen/source_tv_width"
+                android:layout_height="@dimen/source_tv_height"
+                android:layout_marginTop="@dimen/source_tv_marginTop"
                 android:gravity="left"
-                android:paddingLeft="5dp"
-                android:text="TextView"
+                android:paddingLeft="@dimen/source_tv_paddingLeft"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/description_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/description_textView"
+                android:paddingStart="@dimen/source_tv_paddingLeft" />
 
             <TextView
                 android:id="@+id/time_textView"
-                android:layout_width="281dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="4dp"
-                android:text="TextView"
+                android:layout_width="@dimen/time_tv_width"
+                android:layout_height="@dimen/source_tv_height"
+                android:layout_marginTop="@dimen/source_tv_marginTop"
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
@@ -111,8 +111,8 @@
 
             <ImageView
                 android:id="@+id/bookmarksImageView"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/bookmarks_IV_width"
+                android:layout_height="@dimen/bookmarks_IV_height"
                 android:src="@drawable/ic_not_bookmarked"
                 tools:layout_editor_absoluteX="346dp"
                 tools:layout_editor_absoluteY="121dp"

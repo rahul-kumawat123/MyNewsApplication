@@ -16,10 +16,10 @@
 
     <TextView
         android:id="@+id/noBookmarksTV"
-        android:layout_width="294dp"
-        android:layout_height="123dp"
+        android:layout_width="@dimen/noBookmarks_tv_width"
+        android:layout_height="@dimen/noBookmarks_tv_height"
         android:gravity="center"
-        android:textSize="30sp"
+        android:textSize="@dimen/noBookmarks_tv_textSize"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"

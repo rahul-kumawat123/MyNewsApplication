@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/liveNewsFragment"
-        android:title="News"
+        android:title="@string/news"
         android:icon="@drawable/ic_breaking_news" />
 
     <item android:id="@+id/bookmarksFragment"
-        android:title="Bookmarks"
+        android:title="@string/bookmarks"
         android:icon="@drawable/ic_bookmarks" />
 
     <item android:id="@+id/searchNewsFragment"
-        android:title="Search News"
+        android:title="@string/search_news"
         android:icon="@drawable/ic_search" />
 
     <item android:id="@+id/categoryFragment"
-        android:title="Category"
+        android:title="@string/category"
         android:icon="@drawable/ic_category"/>
 
     <item android:id="@+id/settingsFragment"
-        android:title="Settings"
+        android:title="@string/settings"
         android:icon="@drawable/ic_all_news"/>
 </menu>
