@@ -8,27 +8,7 @@ import com.example.newsapp.model.DataModel
 import com.example.newsapp.model.ResponseDataModel
 import java.util.concurrent.Executors
 
-class NewsViewModel( application: Application ,
-//        val newsRepo : NewsRepository
-) : AndroidViewModel(application) {
-//
-//    val liveNews: MutableLiveData<Resource<ResponseDataModel>> = MutableLiveData()
-//
-//    fun getData(countryCode: String) = viewModelScope.launch {
-//        liveNews.postValue(Resource.Loading())
-//
-//        val response = newsRepo.getData(countryCode)
-//        liveNews.postValue(handleLiveNewsResponse(response))
-//    }
-//
-//    private fun handleLiveNewsResponse(response: Response<ResponseDataModel>) : Resource<ResponseDataModel>{
-//        if (response.isSuccessful){
-//            response.body()?.let { resultResponse ->
-//                return (Resource.Success(resultResponse))
-//            }
-//        }
-//        return Resource.Error(response.message())
-//    }
+class NewsViewModel( application: Application ,) : AndroidViewModel(application) {
 
     private val context = getApplication<Application>().applicationContext
     var newsRepository: NewsRepository? = null

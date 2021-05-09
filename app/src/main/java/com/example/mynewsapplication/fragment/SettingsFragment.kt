@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mynewsapplication.viewmodel.NewsViewModel
 import com.example.mynewsapplication.R
-import com.example.mynewsapplication.util.showToast
+import com.example.mynewsapplication.showToast
 import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
@@ -25,13 +25,14 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         inflateCountriesDropDownData()
         searchNewsBTN.setOnClickListener {
 
-            val action = SettingsFragmentDirections.actionSettingsFragmentToLiveNewsFragment(languageValue,countryValue)
+            val action = SettingsFragmentDirections.actionSettingsFragmentToLiveNewsFragment("general",languageValue,countryValue)
             findNavController().navigate(action)
-            context?.showToast(countryValue)
+            //context?.showToast(countryValue)
         }
     }
 
     private fun inflateLanguageDropDownData() {
+
         //inflating autoCompleteTextView with string array
         val languages = resources.getStringArray(R.array.languages)
         val arrayAdapter = context?.let { ArrayAdapter(it, R.layout.dropdown_item, languages) }

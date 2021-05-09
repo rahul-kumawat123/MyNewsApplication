@@ -16,6 +16,7 @@ data class DataModel(
     @SerializedName("title")
     var title : String,
 
+
     @SerializedName("url")
     var url: String,
 

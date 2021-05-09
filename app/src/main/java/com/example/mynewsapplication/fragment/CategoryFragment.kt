@@ -24,7 +24,7 @@ class CategoryFragment: Fragment(R.layout.fragment_category) {
     private fun setUpClickListeners() {
         businessBTN.setOnClickListener {
             category = "business"
-            navigateToLiveNewsWithCategory(category)
+            navigateToLiveNewsWithCategory(category )
         }
 
         entertainmentBTN.setOnClickListener {
@@ -54,7 +54,7 @@ class CategoryFragment: Fragment(R.layout.fragment_category) {
     }
 
     private fun navigateToLiveNewsWithCategory(category: String){
-        val action = CategoryFragmentDirections.actionCategoryFragmentToLiveNewsFragment(category)
+        val action = CategoryFragmentDirections.actionCategoryFragmentToLiveNewsFragment(category , "en" , "us")
         findNavController().navigate(action)
     }
 

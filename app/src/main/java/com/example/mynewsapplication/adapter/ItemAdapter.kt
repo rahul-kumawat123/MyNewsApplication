@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mynewsapplication.R
 import com.example.mynewsapplication.activity.WebActivity
-import com.example.mynewsapplication.util.showToast
+import com.example.mynewsapplication.showToast
 import com.example.newsapp.model.DataModel
 
 
@@ -35,7 +35,7 @@ class ItemAdapter(private val context: Context, private val dataList: List<DataM
         return ViewHolder(inflater)
     }
 
-    private var onItemClickListener: ((DataModel) -> Unit)? = null
+   // private var onItemClickListener: ((DataModel) -> Unit)? = null
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.apply {
