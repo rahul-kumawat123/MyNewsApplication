@@ -7,70 +7,134 @@
 
     <Button
         android:id="@+id/businessBTN"
-        android:layout_width="165dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="173dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:text="Business"
+        android:layout_width="@dimen/Settings_BTN_width"
+        android:layout_height="@dimen/Settings_BTN_height"
+        android:layout_marginTop="@dimen/business_BTN_marginTop"
+        android:layout_marginEnd="@dimen/business_BTN_marginEnd"
+        android:layout_marginRight="@dimen/business_BTN_righ"
+        android:text="@string/business"
         app:layout_constraintEnd_toStartOf="@+id/entertainmentBTN"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/entertainmentBTN"
-        android:layout_width="170dp"
-        android:layout_height="54dp"
-
-        android:layout_marginTop="173dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:text="Entertainment"
+        android:layout_width="@dimen/Settings_BTN_width"
+        android:layout_height="@dimen/Settings_BTN_height"
+        android:layout_marginTop="@dimen/entertainment_BTN_marginTop"
+        android:layout_marginEnd="@dimen/entertainment_BTN_marginEnd"
+        android:layout_marginRight="@dimen/entertainment_BTN_marginRight"
+        android:text="@string/entertainment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/healthBTN"
-        android:layout_width="162dp"
-        android:layout_height="57dp"
-
-        android:layout_marginTop="59dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:text="Health"
+        android:layout_width="@dimen/Settings_BTN_width"
+        android:layout_height="@dimen/Settings_BTN_height"
+        android:layout_marginTop="@dimen/health_BTN_marginTop"
+        android:layout_marginEnd="@dimen/health_BTN_marginEnd"
+        android:layout_marginRight="@dimen/health_BTN_marginRight"
+        android:text="@string/health"
         app:layout_constraintEnd_toStartOf="@+id/scienceBTN"
         app:layout_constraintTop_toBottomOf="@+id/businessBTN" />
 
     <Button
         android:id="@+id/scienceBTN"
-        android:layout_width="169dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:text="Science"
+        android:layout_width="@dimen/Settings_BTN_width"
+        android:layout_height="@dimen/Settings_BTN_height"
+        android:layout_marginTop="@dimen/science_BTN_marginTop"
+        android:layout_marginEnd="@dimen/science_BTN_marginEnd"
+        android:layout_marginRight="@dimen/science_BTN_marginRight"
+        android:text="@string/science"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/entertainmentBTN" />
 
     <Button
         android:id="@+id/sportsBTN"
-        android:layout_width="159dp"
-        android:layout_height="60dp"
-
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:text="Sports"
+        android:layout_width="@dimen/Settings_BTN_width"
+        android:layout_height="@dimen/Settings_BTN_height"
+        android:layout_marginTop="@dimen/sports_BTN_marginTop"
+        android:layout_marginEnd="@dimen/sports_BTN_marginEnd"
+        android:layout_marginRight="@dimen/sports_BTN_marginRight"
+        android:text="@string/sports"
         app:layout_constraintEnd_toStartOf="@+id/technologyBTN"
         app:layout_constraintTop_toBottomOf="@+id/healthBTN" />
 
     <Button
         android:id="@+id/technologyBTN"
-        android:layout_width="166dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:text="Technology"
+        android:layout_width="@dimen/Settings_BTN_width"
+        android:layout_height="@dimen/Settings_BTN_height"
+        android:layout_marginTop="@dimen/technology_BTN_marginTop"
+        android:layout_marginEnd="@dimen/technology_BTN_marginEnd"
+        android:layout_marginRight="@dimen/technology_BTN_marginRight"
+        android:text="@string/technology"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scienceBTN" />
+
+    <ImageView
+        android:id="@+id/businessImageview"
+        android:layout_width="@dimen/Settings_ImageView_width"
+        android:layout_height="@dimen/Settings_ImageView_height"
+        android:layout_marginTop="@dimen/business_ImageView_marginTop"
+        android:layout_marginEnd="@dimen/business_ImageView_marginEnd"
+        android:layout_marginRight="@dimen/business_ImageView_marginRight"
+        app:layout_constraintEnd_toStartOf="@+id/entertainmentBTN"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/business" />
+
+    <ImageView
+        android:id="@+id/entertainmentImageview"
+        android:layout_width="@dimen/Settings_ImageView_width"
+        android:layout_height="@dimen/Settings_ImageView_height"
+        android:layout_marginStart="@dimen/entertainment_ImageView_marginStart"
+        android:layout_marginLeft="@dimen/entertainment_ImageView_marginLeft"
+        android:layout_marginTop="@dimen/entertainment_ImageView_marginTop"
+        app:layout_constraintStart_toEndOf="@+id/businessImageview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/entertainment" />
+
+    <ImageView
+        android:id="@+id/healthImageView"
+        android:layout_width="@dimen/Settings_ImageView_width"
+        android:layout_height="@dimen/Settings_ImageView_height"
+        android:layout_marginTop="@dimen/health_ImageView_marginTop"
+        android:layout_marginEnd="@dimen/health_ImageView_marginEnd"
+        android:layout_marginRight="@dimen/health_ImageView_marginRight"
+        app:layout_constraintEnd_toStartOf="@+id/scienceImageView"
+        app:layout_constraintTop_toBottomOf="@+id/businessBTN"
+        app:srcCompat="@drawable/healthcare" />
+
+    <ImageView
+        android:id="@+id/scienceImageView"
+        android:layout_width="@dimen/Settings_ImageView_width"
+        android:layout_height="@dimen/Settings_ImageView_height"
+        android:layout_marginTop="@dimen/science_ImageView_marginTop"
+        android:layout_marginEnd="@dimen/science_ImageView_marginEnd"
+        android:layout_marginRight="@dimen/science_ImageView_marginRight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entertainmentBTN"
+        app:srcCompat="@drawable/science" />
+
+    <ImageView
+        android:id="@+id/sportsImageview"
+        android:layout_width="@dimen/Settings_ImageView_width"
+        android:layout_height="@dimen/Settings_ImageView_height"
+        android:layout_marginTop="@dimen/sports_ImageView_marginTop"
+        android:layout_marginEnd="@dimen/sports_ImageView_marginEnd"
+        android:layout_marginRight="@dimen/sports_ImageView_marginRight"
+        app:layout_constraintEnd_toStartOf="@+id/technologyBTN"
+        app:layout_constraintTop_toBottomOf="@+id/healthBTN"
+        app:srcCompat="@drawable/sports" />
+
+    <ImageView
+        android:id="@+id/technologyImageview"
+        android:layout_width="@dimen/Settings_ImageView_width"
+        android:layout_height="@dimen/Settings_ImageView_height"
+        android:layout_marginTop="@dimen/technology_ImageView_marginTop"
+        android:layout_marginEnd="@dimen/technology_ImageView_marginEnd"
+        android:layout_marginRight="@dimen/technology_ImageView_marginRight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scienceBTN"
+        app:srcCompat="@drawable/technology" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
