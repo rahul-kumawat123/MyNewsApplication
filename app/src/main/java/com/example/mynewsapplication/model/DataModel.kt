@@ -24,7 +24,7 @@ data class DataModel(
     var description: String,
 
     @SerializedName("image")
-    var image: String,
+    var image: String ?= null,
 
     @SerializedName("source")
     var source: String,

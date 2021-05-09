@@ -35,6 +35,7 @@ class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
                 delay(500L)
                 editable.let {
                     if(editable.toString().isNotEmpty()){
+                        //displaying news using keyword search
                         viewModel.getKeywordNewsFromApi(editable.toString())
                     }
                 }
@@ -45,6 +46,7 @@ class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
             rvSearchNews.also {
                 it.layoutManager = LinearLayoutManager(requireContext())
                 it.adapter = ItemAdapter(activity as MainActivity,dataList.data)
+                //checking if news item is Bookmarked or not and adding or removing to room database
                 { newsData ->
                     if(newsData.isFav){
                         viewModel.addBookmark(newsData)

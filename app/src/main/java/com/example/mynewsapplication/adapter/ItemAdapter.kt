@@ -21,6 +21,7 @@ class ItemAdapter(private val context: Context, private val dataList: List<DataM
 
    inner class ViewHolder(view : View): RecyclerView.ViewHolder(view){
 
+       //assigning variables to views
          val image: ImageView = view.findViewById(R.id.newsImageView)
          val title: TextView = view.findViewById(R.id.heading_textView)
          val desc: TextView = view.findViewById(R.id.description_textView)
@@ -31,15 +32,14 @@ class ItemAdapter(private val context: Context, private val dataList: List<DataM
    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        //inflating layout to adapter
         val inflater = LayoutInflater.from(parent.context).inflate(R.layout.news_data,parent,false)
         return ViewHolder(inflater)
     }
 
-   // private var onItemClickListener: ((DataModel) -> Unit)? = null
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.apply {
-
             title.text = dataList[position].title
             desc.text = dataList[position].description
 
@@ -51,6 +51,7 @@ class ItemAdapter(private val context: Context, private val dataList: List<DataM
             source.text = dataList[position].source
             time.text = dataList[position].time
 
+            //assigning images to BookmarkImageview whenever data item is added or removed from database
             if (dataList[position].isFav){
               holder.bookmark.setImageResource(R.drawable.ic_bookmark_added)
             }else
@@ -58,6 +59,7 @@ class ItemAdapter(private val context: Context, private val dataList: List<DataM
                 holder.bookmark.setImageResource(R.drawable.ic_not_bookmarked)
             }
 
+            //opening webView upon clicking of image of a news item
             image.setOnClickListener {
                 val intent = Intent(holder.itemView.context , WebActivity::class.java)
                 intent.putExtra("url" , dataList[position].url)
@@ -65,7 +67,7 @@ class ItemAdapter(private val context: Context, private val dataList: List<DataM
             }
 
             holder.bookmark.setOnClickListener {
-                dataList[position].isFav =! dataList[position].isFav
+                dataList[position].isFav = !dataList[position].isFav
                 onItemClick(dataList[position])
                 notifyDataSetChanged()
 

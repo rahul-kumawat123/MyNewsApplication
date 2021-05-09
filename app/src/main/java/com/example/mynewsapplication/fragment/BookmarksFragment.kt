@@ -22,11 +22,13 @@ class BookmarksFragment: Fragment(R.layout.fragment_bookmark) {
 
         bookmarksViewModel = ViewModelProvider(this).get(BookmarksViewModel::class.java)
 
+        //retrieving data from room database using BookmarkViewModel
         bookmarksViewModel.getSavedDataFromDatabase()
         bookmarksViewModel.roomLiveData.observe(viewLifecycleOwner , Observer { dataList ->
             rvSavedNews.also {
                 it.layoutManager = LinearLayoutManager(requireContext())
                 it.adapter = ItemAdapter(activity as MainActivity, dataList)
+                //checking if news item is Bookmarked or not and adding or removing to room database
                 { roomData ->
                     if (roomData.isFav){
                         bookmarksViewModel.addBookmark(roomData)
@@ -34,6 +36,7 @@ class BookmarksFragment: Fragment(R.layout.fragment_bookmark) {
                         bookmarksViewModel.removeBookmark(roomData)
                     }
                 }
+                //showing textview when room Database is empty
                 if (dataList.isEmpty()){
                     noBookmarksTV.isVisible = true
                     noBookmarksTV.text = "You have no Bookmarks till now"

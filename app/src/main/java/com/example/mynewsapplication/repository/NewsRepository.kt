@@ -3,7 +3,9 @@ package com.example.mynewsapplication.repository
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import android.widget.Toast.makeText
 import androidx.lifecycle.MutableLiveData
+import com.example.mynewsapplication.activity.MainActivity
 import com.example.mynewsapplication.util.Constants.Companion.KEY
 import com.example.newsapp.database.AppRoomDatabase
 import com.example.newsapp.model.ResponseDataModel
@@ -19,6 +21,10 @@ class NewsRepository() {
     val TAG = NewsRepository::class.java.simpleName
     val mutableList: MutableLiveData<ResponseDataModel> = MutableLiveData()
 
+    /**
+     * Function to receive news items based on category , language and country
+     * Uses retrofit to call API
+     */
     fun getData(category: String ,language: String , country: String){
 
         val call = ApiClient.getClient.getCategorisedData(KEY  , category , language , country  )
@@ -30,19 +36,19 @@ class NewsRepository() {
                 if(response.isSuccessful){
                     Log.i(TAG, response.body().toString())
                     mutableList.postValue(response.body())
-//                    Toast.makeText(this,"${response.body()?.data.}")
                 }
             }
 
             override fun onFailure(call: Call<ResponseDataModel>, t: Throwable) {
                 Log.e(TAG,"Error is ${t.localizedMessage}")
-//                Context.showToast("Some Error Occurred. Please Check Internet Connection")
-
             }
         })
     }
 
-
+    /**
+     * Function to receive news items based on Keyword Search
+     * Uses retrofit to call API
+     */
     fun getKeywordData( keyword: String){
         val call = ApiClient.getClient.getSearchData(KEY, "en",  keyword)
         call.enqueue(object : Callback<ResponseDataModel> {
@@ -58,7 +64,6 @@ class NewsRepository() {
 
             override fun onFailure(call: Call<ResponseDataModel>, t: Throwable) {
                 Log.e(TAG, "Error is ${t.localizedMessage}")
-//                showToast("Some Error Occurred. Please Check Internet Connection")
             }
         })
     }

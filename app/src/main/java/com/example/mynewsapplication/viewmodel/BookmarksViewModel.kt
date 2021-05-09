@@ -13,6 +13,9 @@ class BookmarksViewModel(application: Application): AndroidViewModel(application
     private val context = getApplication<Application>().applicationContext
     private val roomDatabaseBuilder = RoomDatabaseBuilder.getInstance(context)
 
+    /**
+     * Function to Retrieve Data from Room Databse
+     */
     fun getSavedDataFromDatabase():MutableLiveData<List<DataModel>>{
             Executors.newSingleThreadExecutor().execute {
                 val list = roomDatabaseBuilder.dataModelNewsDao().getAllNews()
@@ -21,6 +24,9 @@ class BookmarksViewModel(application: Application): AndroidViewModel(application
         return roomLiveData
     }
 
+    /**
+     * Function to add data in Room Database upon clicking of Bookmark icon
+     */
     fun addBookmark(dataModel: DataModel) {
         Executors.newSingleThreadExecutor().execute {
             roomDatabaseBuilder.dataModelNewsDao().insertNews(
@@ -37,6 +43,9 @@ class BookmarksViewModel(application: Application): AndroidViewModel(application
         }
     }
 
+    /**
+     * Function to remove data in Room Database upon clicking of Bookmark icon
+     */
     fun removeBookmark(dataModel: DataModel) {
         Executors.newSingleThreadExecutor().execute {
             roomDatabaseBuilder.dataModelNewsDao().deleteNews(

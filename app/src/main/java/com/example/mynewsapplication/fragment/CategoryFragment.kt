@@ -54,6 +54,7 @@ class CategoryFragment: Fragment(R.layout.fragment_category) {
     }
 
     private fun navigateToLiveNewsWithCategory(category: String){
+        //using safeArgs to send selected data to LiveNewsFragment
         val action = CategoryFragmentDirections.actionCategoryFragmentToLiveNewsFragment(category , "en" , "us")
         findNavController().navigate(action)
     }

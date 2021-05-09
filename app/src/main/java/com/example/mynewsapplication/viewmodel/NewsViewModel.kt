@@ -20,16 +20,25 @@ class NewsViewModel( application: Application ,) : AndroidViewModel(application)
         mutableLiveData = newsRepository?.mutableList
     }
 
-
+    /**
+     * Calling Function to receive news items based on category , language and country
+     * Uses retrofit to call API
+     */
     fun getNewsFromApi(category: String , language: String, country: String ) {
         newsRepository?.getData(category ,language , country)
     }
 
-
+    /**
+     * Calling Function to receive news items based on Keyword Search
+     * Uses retrofit to call API
+     */
     fun getKeywordNewsFromApi( keyword: String) {
         newsRepository?.getKeywordData(keyword)
     }
 
+    /**
+     * Function to add data in Room Database upon clicking of Bookmark icon
+     */
     fun addBookmark(dataModel: DataModel) {
         Executors.newSingleThreadExecutor().execute {
             roomDatabaseBuilder.dataModelNewsDao().insertNews(
@@ -46,7 +55,9 @@ class NewsViewModel( application: Application ,) : AndroidViewModel(application)
         }
     }
 
-
+    /**
+     * Function to remove data in Room Database upon clicking of Bookmark icon
+     */
     fun removeBookmark(dataModel: DataModel) {
         Executors.newSingleThreadExecutor().execute {
             roomDatabaseBuilder.dataModelNewsDao().deleteNews(

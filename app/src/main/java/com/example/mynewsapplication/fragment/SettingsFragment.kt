@@ -23,14 +23,19 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         inflateLanguageDropDownData()
 
         inflateCountriesDropDownData()
-        searchNewsBTN.setOnClickListener {
 
+        searchNewsBTN.setOnClickListener {
+            //using safeArgs to send selected data to LiveNewsFragment
             val action = SettingsFragmentDirections.actionSettingsFragmentToLiveNewsFragment("general",languageValue,countryValue)
             findNavController().navigate(action)
             //context?.showToast(countryValue)
         }
     }
 
+    /**
+     * This function will store the Language Selected value
+     * from the AutoCompleteTextView and assign codes to  respective languages
+     */
     private fun inflateLanguageDropDownData() {
 
         //inflating autoCompleteTextView with string array
@@ -58,6 +63,10 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             }
         }
 
+    /**
+     * Function will store the Country Selected value from the
+     *  autoCompleteTextView and assign codes to respective Country
+     */
     private fun inflateCountriesDropDownData() {
         //inflating autoCompleteTextView with string array
         val countries = resources.getStringArray(R.array.countries)

@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.example.newsapp.model.DataModel
 
 
-@Database(entities = [DataModel::class] , version = 5)
+@Database(entities = [DataModel::class] , version = 6)
 abstract class AppRoomDatabase: RoomDatabase() {
     abstract fun dataModelNewsDao(): DataModelNewsDao
 }

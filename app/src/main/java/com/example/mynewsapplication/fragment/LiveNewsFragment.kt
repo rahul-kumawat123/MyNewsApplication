@@ -25,11 +25,14 @@ class LiveNewsFragment : Fragment(R.layout.fragment_live_news) {
 
         viewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
 
+        //displaying news using SafeArgs values from Nav-Graph
         viewModel.getNewsFromApi(args.category , args.language , args.country)
+
         viewModel.mutableLiveData?.observe(viewLifecycleOwner , Observer { dataList ->
             rvLiveNews.also {
                 it.layoutManager = LinearLayoutManager(requireContext())
                 it.adapter = ItemAdapter(activity as MainActivity, dataList.data  )
+                //checking if news item is Bookmarked or not and adding or removing to room database
                 { newsData ->
                     if(newsData.isFav){
                         viewModel.addBookmark(newsData)
