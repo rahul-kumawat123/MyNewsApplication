@@ -1,21 +1,20 @@
 package com.example.mynewsapplication.repository
 
-import android.app.ProgressDialog
-import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import android.widget.Toast.makeText
 import androidx.lifecycle.MutableLiveData
-import com.example.mynewsapplication.activity.MainActivity
+import com.example.mynewsapplication.R
+import com.example.mynewsapplication.MyNewsApplication
+import com.example.mynewsapplication.showToast
 import com.example.mynewsapplication.util.Constants.Companion.KEY
-import com.example.newsapp.database.AppRoomDatabase
 import com.example.newsapp.model.ResponseDataModel
 import com.example.newsapp.rests.ApiClient
-import org.intellij.lang.annotations.Language
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
+import java.io.IOException
+import java.net.ConnectException
+import java.net.UnknownHostException
 
 class NewsRepository() {
 
@@ -44,6 +43,12 @@ class NewsRepository() {
 
             override fun onFailure(call: Call<ResponseDataModel>, t: Throwable) {
                 Log.e(TAG,"Error is ${t.localizedMessage}")
+                if (t is UnknownHostException
+                    || t is ConnectException
+                    || t is IOException
+                ) {
+                    MyNewsApplication.getApplicationContext().showToast("Please check Internet Connection")
+                }
             }
         })
     }
@@ -65,11 +70,18 @@ class NewsRepository() {
                 }
                 else{
                     Log.e(TAG , "There is a problem in Establishing Connection")
+
                 }
             }
 
             override fun onFailure(call: Call<ResponseDataModel>, t: Throwable) {
                 Log.e(TAG, "Error is ${t.localizedMessage}")
+                if (t is UnknownHostException
+                    || t is ConnectException
+                    || t is IOException
+                ) {
+                    MyNewsApplication.getApplicationContext().showToast("Please check Internet Connection")
+                }
             }
         })
     }

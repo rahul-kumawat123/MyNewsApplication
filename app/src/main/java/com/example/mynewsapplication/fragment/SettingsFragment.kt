@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
     lateinit var viewModel: NewsViewModel
-    lateinit  var languageValue : String
-    lateinit var countryValue : String
+    var languageValue : String? = null
+    var countryValue : String? = null
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -26,7 +26,8 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         searchNewsBTN.setOnClickListener {
             //using safeArgs to send selected data to LiveNewsFragment
-            val action = SettingsFragmentDirections.actionSettingsFragmentToLiveNewsFragment("general",languageValue,countryValue)
+            val action = SettingsFragmentDirections.actionSettingsFragmentToLiveNewsFragment(
+                "general",languageValue?: "en",countryValue?: "us")
             findNavController().navigate(action)
             //context?.showToast(countryValue)
         }

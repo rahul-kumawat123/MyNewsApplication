@@ -72,7 +72,7 @@ class ItemAdapter(private val context: Context, private val dataList: List<DataM
                 notifyDataSetChanged()
 
                 if (dataList[position].isFav){
-                    context.showToast("Bookmark Added")
+                    context.showToast("Bookmark Added" )
                 }else{
                     context.showToast("Bookmark Removed")
                 }
