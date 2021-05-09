@@ -36,6 +36,8 @@ class NewsRepository() {
                 if(response.isSuccessful){
                     Log.i(TAG, response.body().toString())
                     mutableList.postValue(response.body())
+                }else{
+                    Log.e(TAG , "There is a problem in Establishing Connection")
                 }
             }
 
@@ -59,6 +61,9 @@ class NewsRepository() {
                 if (response.isSuccessful) {
                     Log.i(TAG, response.body().toString())
                     mutableList.postValue(response.body())
+                }
+                else{
+                    Log.e(TAG , "There is a problem in Establishing Connection")
                 }
             }
 
